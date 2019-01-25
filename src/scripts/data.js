@@ -1,13 +1,12 @@
 const data = {
 
   // Retrieve place data.
-  Places() {
+  getAllPlaces() {
     return fetch("http://localhost:8088/places")
     .then(response => response.json())
   },
-  //********* INTERESTS TABLE *********//
-  // GRAB ALL INTERESTS - GET
-  getInterests() {
+  // Retrieve interest data.
+  getAllInterests() {
     return fetch(`http://localhost:8088/interests`)
     .then(response => response.json())
   },
