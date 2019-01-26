@@ -4,7 +4,7 @@
   border-radius: 10px;
   flex-direction: column;
   height: 100px;
-  width: 150px;
+  width: 175px;
   text-align: center;
   justify-content: center;
   margin: 10px;
@@ -15,4 +15,6 @@
   text-align: center;
   justify-content: center;
   margin: 10px;
+}.desc_textarea {
+  display: inline;
 }
