@@ -22,11 +22,11 @@ const displayLocations = {
   placeBuilder (placeObj) {
     // Formatting the data.
     let placeArticle = document.createElement("article");
-    let placeName = document.createElement("h3");
+    let placeName = document.createElement("h4");
     placeName.textContent = placeObj.name;
 
     let visaReq = document.createElement("p");
-    visaReq.textContent = placeObj.visa_required;
+    visaReq.textContent = `Visa required: ${placeObj.visa_required}`;
 
     placeArticle.appendChild(placeName);
     placeArticle.appendChild(visaReq);

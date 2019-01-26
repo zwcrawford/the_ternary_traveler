@@ -4,7 +4,7 @@
   border-radius: 10px;
   flex-direction: column;
   height: 100px;
-  width: 150px;
+  width: 175px;
   text-align: center;
   justify-content: center;
   margin: 10px;
@@ -15,4 +15,14 @@
   text-align: center;
   justify-content: center;
   margin: 10px;
+}.desc_textarea {
+  display: inline;
+}
+body {
+  width: 600px;
+}
+.interest__save {
+  background-color: aquamarine;
+  border:  1px solid black;
+  margin: 5px;
 }
