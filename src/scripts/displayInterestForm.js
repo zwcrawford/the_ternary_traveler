@@ -23,6 +23,7 @@ const displayInterestForm = {
     interestNameLabel.textContent = "Name:  ";
     interestNameLabel.setAttribute("for", "interest__name");
     interestNameInput.setAttribute("id", "interest__name");
+    interestNameInput.setAttribute("name", "interest__name");
 
     interestNameField.appendChild(interestNameLabel)
     interestNameField.appendChild(interestNameInput)
@@ -77,12 +78,12 @@ const displayInterestForm = {
     let interestPlaceSelect = document.createElement("select");
 
     interestPlaceLabel.textContent = "Location:  ";
-    interestReviewLabel.setAttribute("for", "interest__location");
-    interestPlaceSelect.setAttribute("id", "interest__location");
-    interestPlaceSelect.setAttribute("name", "interest__location");
+    interestReviewLabel.setAttribute("for", "interest__place");
+    interestPlaceSelect.setAttribute("id", "interest__place");
+    interestPlaceSelect.setAttribute("name", "interest__place");
 
-    interestPlaceField.appendChild(interestPlaceLabel)
-    interestPlaceField.appendChild(interestPlaceSelect)
+    interestPlaceField.appendChild(interestPlaceLabel);
+    interestPlaceField.appendChild(interestPlaceSelect);
 
     /*
     Not populating the cities manually bc I had a hard time getting
@@ -92,13 +93,44 @@ const displayInterestForm = {
     data.getAllPlaces()
       .then(places => {
         places.forEach(place => {
-          let placeOption = document.createElement("option")
-          placeOption.textContent = place.name
-          placeOption.setAttribute
+          let placeOption = document.createElement("option");
+          placeOption.textContent = place.name;
+          placeOption.setAttribute("value", place.id);
+          placeOption.setAttribute("class", "interest__place");
+          interestPlaceSelect.appendChild(placeOption);
         })
       })
 
-    formArticle.appendChild(interestPlaceField)
+      let saveBtn = document.createElement("button");
+      saveBtn.textContent += "Save Interest";
+      saveBtn.setAttribute("class", "interest__save");
+      saveBtn.addEventListener("click", this.handleAddInterest)
+
+      formArticle.appendChild(interestPlaceField);
+      formArticle.appendChild(saveBtn);
+
+  },
+  handleAddInterest() {
+    let newInterestName = document.querySelector("interest__name").value
+    let newInterestDesc = document.querySelector("interest__desc").value
+    let newInterestCost = document.querySelector("interest__cost").value
+    let newInterestReview = document.querySelector("interest__review").value
+    let newInterestLocation = document.querySelector("interest__place").value
+
+    // Define the newInterest object to be added to the db.
+    let newInterest =  {
+      name: newInterestName,
+      description: newInterestDesc,
+      cost: newInterestCost,
+      review: newInterestReview,
+      placeId: newInterestLocation
+    }
+    // Need to define the output to the DOM for the interests.
+    // Need to clear the form after interest is saved.
+
+    data.addInterest(newInterest)
+    .then(response => response.json)
+    console.log("newInterest: ", newInterest)
   }
 }
 export default displayInterestForm
