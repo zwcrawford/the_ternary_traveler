@@ -111,11 +111,11 @@ const displayInterestForm = {
 
   },
   handleAddInterest() {
-    let newInterestName = document.querySelector("interest__name").value
-    let newInterestDesc = document.querySelector("interest__desc").value
-    let newInterestCost = document.querySelector("interest__cost").value
-    let newInterestReview = document.querySelector("interest__review").value
-    let newInterestLocation = document.querySelector("interest__place").value
+    let newInterestName = document.querySelector("#interest__name").value
+    let newInterestDesc = document.querySelector("#interest__desc").value
+    let newInterestCost = document.querySelector("#interest__cost").value
+    let newInterestReview = document.querySelector("#interest__review").value
+    let newInterestLocation = document.querySelector("#interest__place").value
 
     // Define the newInterest object to be added to the db.
     let newInterest =  {
@@ -125,7 +125,7 @@ const displayInterestForm = {
       review: newInterestReview,
       placeId: newInterestLocation
     }
-    // Need to define the output to the DOM for the interests.
+    // Need to define the output to the DOM for each/all interests.
     // Need to clear the form after interest is saved.
 
     data.addInterest(newInterest)
