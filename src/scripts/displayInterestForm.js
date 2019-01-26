@@ -135,11 +135,11 @@ const displayInterestForm = {
     // Need to define the output to the DOM for each/all interests.
     interest.interestOnDOM()
     // Need to clear the form after interest is saved.
-
+    this.clearInterestForm()
     data.addInterest(newInterest)
     .then(response => response.json)
     //console.log("newInterest: ", newInterest)
-    
+
   },
   clearInterestForm() {
     document.querySelector("#interest__name").value = "";
