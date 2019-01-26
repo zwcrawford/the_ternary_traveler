@@ -26,9 +26,7 @@ const defineEachInterest = {
     interestReview.textContent = `${interest.review}`;
     let interestLocation = document.createElement("p");
     interestLocation.textContent = `${interest.place.name}`;
-    // Works.
-    // At this point I am logging all input fields to the db.json.
-    console.log(`${interest.place.name}`)
+
   }
 }
 export default defineEachInterest

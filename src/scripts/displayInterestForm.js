@@ -106,8 +106,15 @@ const displayInterestForm = {
       saveBtn.setAttribute("class", "interest__save");
       saveBtn.addEventListener("click", this.handleAddInterest)
 
+      // Trying a clear button:
+      let clearBtn = document.createElement("button");
+      clearBtn.textContent += "Clear Fields";
+      clearBtn.setAttribute("class", "clear__fields");
+      clearBtn.addEventListener("click", this.clearInterestForm)
+
       formArticle.appendChild(interestPlaceField);
       formArticle.appendChild(saveBtn);
+      formArticle.appendChild(clearBtn);
 
   },
   handleAddInterest() {
@@ -126,11 +133,19 @@ const displayInterestForm = {
       placeId: newInterestLocation
     }
     // Need to define the output to the DOM for each/all interests.
+    interest.interestOnDOM()
     // Need to clear the form after interest is saved.
-
+    this.clearInterestForm()
     data.addInterest(newInterest)
     .then(response => response.json)
-    console.log("newInterest: ", newInterest)
+    //console.log("newInterest: ", newInterest)
+
+  },
+  clearInterestForm() {
+    document.querySelector("#interest__name").value = "";
+    document.querySelector("#interest__desc").value = "";
+    document.querySelector("#interest__cost").value = "";
+    document.querySelector("#interest__review").value = "";
   }
 }
 export default displayInterestForm

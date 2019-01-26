@@ -17,6 +17,8 @@
   margin: 10px;
 }.desc_textarea {
   display: inline;
+  resize: vertical;
+  max-height: 200px;
 }
 body {
   width: 600px;
@@ -25,4 +27,14 @@ body {
   background-color: aquamarine;
   border:  1px solid black;
   margin: 5px;
+}
+.clear__fields {
+  background-color: aquamarine;
+  border:  1px solid black;
+  margin: 5px;
+}
+fieldset  {
+  border: 1px solid black;
+  padding: 5px;
+  margin: 2px;
 }
