@@ -11,7 +11,7 @@ const data = {
     .then(response => response.json())
   },
   getInterestsByPlace() {
-    return fetch("http://localhost:8088/interests/?_expand=place")
+    return fetch("http://localhost:8088/interests?_expand=place")
     .then(response => response.json())
   },
   // ADD INTEREST
@@ -34,7 +34,7 @@ const data = {
     })
   },
   // EDIT EXISTING INTEREST - PUT
-  editInterest(interestId,interestToEdit) {
+  editInterest(interestId, interestToEdit) {
     return fetch(`http://localhost:8088/interests/${interestId}`, {
       method: "PATCH",
       headers: {

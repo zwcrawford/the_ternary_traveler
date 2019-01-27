@@ -106,7 +106,7 @@ const displayInterestForm = {
       let saveBtn = document.createElement("button");
       saveBtn.textContent = "Save Interest";
       saveBtn.setAttribute("class", "interest__save");
-      saveBtn.addEventListener("click", this.handleAddInterest)
+      saveBtn.addEventListener("click", displayInterestForm.handleAddInterest)
 
       // Trying a clear button:
       let clearBtn = document.createElement("button");
