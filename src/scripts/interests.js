@@ -15,8 +15,10 @@ const interests = {
   interestOnDOM(interest) {
     let interestArticle = document.createElement("article");
     interestArticle.setAttribute("id", `interest__${interest.id}`);
-    let interestName = document.createElement("h4");
-    interestName.textContent = `${interest.name, interest.place.name}`;
+    let interestTitle = document.createElement("h3");
+    interestTitle.textContent = `${interest.name, interest.place.name}`;
+    let interestName = document.createElement("p");
+    interestName.textContent = `${interest.name}`;
     let interestDesc = document.createElement("p");
     interestDesc.textContent = `${interest.description}`;
     let interestCost = document.createElement("p");
@@ -24,6 +26,7 @@ const interests = {
     let interestReview = document.createElement("p");
     interestReview.textContent = `${interest.review}`;
 
+    interestArticle.appendChild(interestTitle);
     interestArticle.appendChild(interestName);
     interestArticle.appendChild(interestDesc);
     interestArticle.appendChild(interestCost);
@@ -31,5 +34,6 @@ const interests = {
 
     return interestArticle;
   }
+  // Need to add the ability to Edit an interest already on DOM.
 }
 export default interests
