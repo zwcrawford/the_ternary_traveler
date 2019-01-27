@@ -1,7 +1,6 @@
-import data from "./data"
 /* Define how the newInterest object will look when added to the DOM, under the #intForm-container article.
 
-This component is going to tie in to the displayInterestForm.createAndAppendForm() method so that after we define all the stuff the user will interact with, we can code all possible outcomes. In this case, we are going to be adding the interest card to the DOM. We will define the output here and call it there, just under the following code:
+This component is going to tie in to the interestList.displayInterestList() method so that after we define all the stuff the user will interact with, we can code all possible outcomes. In this case, we are going to be adding the interest card to the DOM. We will define the output here and call it there, just under the following code:
 
 >>> displayInterestForm.createAndAppendForm >>>
 let newInterest =  {
@@ -12,10 +11,10 @@ let newInterest =  {
   placeId: newInterestLocation
 }
 */
-const defineEachInterest = {
+const interests = {
   interestOnDOM (interest) {
-    let interestCard = document.createElement("article");
-    interestCard.setAttribute(`id, interest__${interest.id}`);
+    let interestArticle = document.createElement("article");
+    interestArticle.setAttribute("id", `interest__${interest.id}`);
     let interestName = document.createElement("h3");
     interestName.textContent = `${interest.name, interest.place.name}`;
     let interestDesc = document.createElement("p");
@@ -27,6 +26,13 @@ const defineEachInterest = {
     let interestLocation = document.createElement("p");
     interestLocation.textContent = `${interest.place.name}`;
 
+    interestArticle.appendChild(interestName);
+    interestArticle.appendChild(interestDesc);
+    interestArticle.appendChild(interestCost);
+    interestArticle.appendChild(interestReview);
+    interestArticle.appendChild(interestLocation);
+
+    return interestArticle;
   }
 }
-export default defineEachInterest
+export default interests

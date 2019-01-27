@@ -1,5 +1,7 @@
 //Creating and appending the interest form to the DOM.
 import data from "./data"
+import displayInterestList from "./interestList"
+
 // This will be done on page load. All edits, deletes, and additions will be coded after this step.
 const displayInterestForm = {
   createAndAppendForm() {
@@ -94,7 +96,7 @@ const displayInterestForm = {
       .then(places => {
         places.forEach(place => {
           let placeOption = document.createElement("option");
-          placeOption.textContent = place.name;
+          placeOption.textContent += place.name;
           placeOption.setAttribute("value", place.id);
           placeOption.setAttribute("class", "interest__place");
           interestPlaceSelect.appendChild(placeOption);
@@ -132,14 +134,15 @@ const displayInterestForm = {
       review: newInterestReview,
       placeId: newInterestLocation
     }
-    // Need to define the output to the DOM for each/all interests.
-    interest.interestOnDOM()
-    // Need to clear the form after interest is saved.
-    this.clearInterestForm()
+
     data.addInterest(newInterest)
     .then(response => response.json)
-    //console.log("newInterest: ", newInterest)
-
+    // Need to define the output to the DOM for each/all interests.
+    displayInterestList.interestList();
+    // Need to clear the form after interest is saved.
+    displayInterestForm.clearInterestForm();
+    // Logging to the db here:
+    console.log("newInterest: ", newInterest)
   },
   clearInterestForm() {
     document.querySelector("#interest__name").value = "";
