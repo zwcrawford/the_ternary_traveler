@@ -24,6 +24,14 @@
       "description": "Local market where you can try purchase local products and try the local food",
       "cost": 0,
       "review": "You can definitely get things for a lower price if you are willing to bargain!"
+    },
+    {
+      "name": "1",
+      "description": "1",
+      "cost": "1",
+      "review": "1",
+      "placeId": "1",
+      "id": 2
     }
   ]
 }
