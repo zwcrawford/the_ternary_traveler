@@ -40,7 +40,7 @@ const interests = {
       data.getAllInterests(interestId)
       .then(response => {
         //need to create the editForm and call it here.
-        editInterestForm.createAndAppendEditForm(articleId, interestId)
+        editInterestForm.createAndAppendEditForm(articleId, response)
       })
     })
 

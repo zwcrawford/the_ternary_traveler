@@ -1,5 +1,4 @@
 import data from "./data"
-//import interests from "./interests"
 import displayInterestList from "./displayInterestList"
 
 const editInterestForm = {
@@ -7,7 +6,7 @@ const editInterestForm = {
 
     let editFormHeader = document.createElement("h3");
     editFormHeader.textContent = "Update Interest:";
-    console.log(interestObjToEdit)
+    //console.log(interestObjToEdit)
 
     // Create fieldset for editing cost.
     let editInterestCostField = document.createElement("fieldset");
@@ -35,16 +34,16 @@ const editInterestForm = {
         cost: editInterestCostInput.value,
         review: editInterestReviewInput.value
       }
-      console.log("newInterest", newInterest)
+      //console.log("newInterest", newInterest)
 
       data.editInterest(interestObjToEdit.id, newInterest)
       .then(response => {
         displayInterestList.interestList()
-        console.log(interestObjToEdit)
+        //console.log(interestObjToEdit)   ** val of 2 **
       })
     })
 
-    let interestArticle = document.querySelector(`#${articleId}`)
+    let interestArticle = document.querySelector(`#${articleId}`);
     while (interestArticle.firstChild) {
       interestArticle.removeChild(interestArticle.firstChild);
     }
