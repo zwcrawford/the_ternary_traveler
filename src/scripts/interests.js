@@ -1,3 +1,6 @@
+import data from "./data";
+import editInterestForm from "./editInterestForm";
+import displayInterestList from "./displayInterestList";
 /* Define how the newInterest object will look when added to the DOM, under the #intForm-container article.
 
 This component is going to tie in to the interestList.displayInterestList() method so that after we define all the stuff the user will interact with, we can code all possible outcomes. In this case, we are going to be adding the interest card to the DOM. We will define the output here and call it there, just under the following code:
@@ -26,14 +29,32 @@ const interests = {
     let interestReview = document.createElement("p");
     interestReview.textContent = `${interest.review}`;
 
+    // Need to add the ability to edit an interest already on DOM.
+    // Add the edit button to the display:
+    let editIntBtn = document.createElement("button");
+    editIntBtn.textContent = "Edit";
+    editIntBtn.addEventListener("click", () => {
+      let articleId = event.target.parentNode.id;
+      let interestId = articleId.split("--")[1];
+      data.getAllInterests(interestId)
+      .then(response => {
+        //need to create the editForm and call it here.
+        editInterestForm.createAndAppendEditForm(articleId, response)
+      })
+    })
+
+
+
+
+
     interestArticle.appendChild(interestTitle);
     interestArticle.appendChild(interestName);
     interestArticle.appendChild(interestDesc);
     interestArticle.appendChild(interestCost);
     interestArticle.appendChild(interestReview);
+    interestArticle.appendChild(editIntBtn)
 
     return interestArticle;
   }
-  // Need to add the ability to Edit an interest already on DOM.
 }
 export default interests
