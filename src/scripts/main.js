@@ -3,3 +3,4 @@ import displayInterestForm from "./displayInterestForm"
 
 displayLocations.listify();
 displayInterestForm.createAndAppendForm();
+
