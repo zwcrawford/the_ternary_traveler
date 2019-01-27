@@ -16,7 +16,7 @@ const interests = {
     let interestArticle = document.createElement("article");
     interestArticle.setAttribute("id", `interest__${interest.id}`);
     let interestName = document.createElement("h3");
-    interestName.textContent = `${interest.name, interest.place.name}`;
+    interestName.textContent = `${interest.name}`;
     let interestDesc = document.createElement("p");
     interestDesc.textContent = `${interest.description}`;
     let interestCost = document.createElement("p");

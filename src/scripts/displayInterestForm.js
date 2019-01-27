@@ -96,7 +96,7 @@ const displayInterestForm = {
       .then(places => {
         places.forEach(place => {
           let placeOption = document.createElement("option");
-          placeOption.textContent += place.name;
+          placeOption.textContent = place.name;
           placeOption.setAttribute("value", place.id);
           placeOption.setAttribute("class", "interest__place");
           interestPlaceSelect.appendChild(placeOption);
