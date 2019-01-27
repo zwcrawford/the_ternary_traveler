@@ -15,7 +15,8 @@
   text-align: center;
   justify-content: center;
   margin: 10px;
-}.desc_textarea {
+}
+.desc_textarea {
   display: inline;
   resize: vertical;
   max-height: 200px;

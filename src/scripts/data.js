@@ -6,8 +6,8 @@ const data = {
     .then(response => response.json())
   },
   // Retrieve interest data.
-  getAllInterests() {
-    return fetch("http://localhost:8088/interests")
+  getAllInterests(interestId) {
+    return fetch(`http://localhost:8088/interests/${interestId}`)
     .then(response => response.json())
   },
   getInterestsByPlace() {
@@ -36,12 +36,12 @@ const data = {
   // EDIT EXISTING INTEREST - PUT
   editInterest(interestId,interestToEdit) {
     return fetch(`http://localhost:8088/interests/${interestId}`, {
-      method: "PUT",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(interestToEdit)
     })
-  },
+  }
 }
 export default data;
