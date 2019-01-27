@@ -12,10 +12,10 @@ let newInterest =  {
 }
 */
 const interests = {
-  interestOnDOM (interest) {
+  interestOnDOM(interest) {
     let interestArticle = document.createElement("article");
     interestArticle.setAttribute("id", `interest__${interest.id}`);
-    let interestName = document.createElement("h3");
+    let interestName = document.createElement("h4");
     interestName.textContent = `${interest.name, interest.place.name}`;
     let interestDesc = document.createElement("p");
     interestDesc.textContent = `${interest.description}`;
@@ -23,14 +23,11 @@ const interests = {
     interestCost.textContent = `${interest.cost}`;
     let interestReview = document.createElement("p");
     interestReview.textContent = `${interest.review}`;
-    let interestLocation = document.createElement("p");
-    interestLocation.textContent = `${interest.place.name}`;
 
     interestArticle.appendChild(interestName);
     interestArticle.appendChild(interestDesc);
     interestArticle.appendChild(interestCost);
     interestArticle.appendChild(interestReview);
-    interestArticle.appendChild(interestLocation);
 
     return interestArticle;
   }

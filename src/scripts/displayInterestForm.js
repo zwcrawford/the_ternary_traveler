@@ -1,6 +1,6 @@
 //Creating and appending the interest form to the DOM.
 import data from "./data"
-import displayInterestList from "./interestList"
+import displayInterestList from "./displayInterestList"
 
 // This will be done on page load. All edits, deletes, and additions will be coded after this step.
 const displayInterestForm = {
@@ -96,7 +96,7 @@ const displayInterestForm = {
       .then(places => {
         places.forEach(place => {
           let placeOption = document.createElement("option");
-          placeOption.textContent += place.name;
+          placeOption.textContent = place.name;
           placeOption.setAttribute("value", place.id);
           placeOption.setAttribute("class", "interest__place");
           interestPlaceSelect.appendChild(placeOption);
@@ -104,13 +104,13 @@ const displayInterestForm = {
       })
 
       let saveBtn = document.createElement("button");
-      saveBtn.textContent += "Save Interest";
+      saveBtn.textContent = "Save Interest";
       saveBtn.setAttribute("class", "interest__save");
       saveBtn.addEventListener("click", this.handleAddInterest)
 
       // Trying a clear button:
       let clearBtn = document.createElement("button");
-      clearBtn.textContent += "Clear Fields";
+      clearBtn.textContent = "Clear Fields";
       clearBtn.setAttribute("class", "clear__fields");
       clearBtn.addEventListener("click", this.clearInterestForm)
 
@@ -134,15 +134,16 @@ const displayInterestForm = {
       review: newInterestReview,
       placeId: newInterestLocation
     }
-
-    data.addInterest(newInterest)
-    .then(response => response.json)
     // Need to define the output to the DOM for each/all interests.
-    displayInterestList.interestList();
     // Need to clear the form after interest is saved.
+    // This is where I really struggled. Make sure naming matches for imports!!!
+    data.addInterest(newInterest)
+    .then(response => {
+    displayInterestList.interestList();
     displayInterestForm.clearInterestForm();
     // Logging to the db here:
-    console.log("newInterest: ", newInterest)
+    //console.log("newInterest: ", newInterest)
+    })
   },
   clearInterestForm() {
     document.querySelector("#interest__name").value = "";

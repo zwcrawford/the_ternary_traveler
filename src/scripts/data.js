@@ -7,11 +7,11 @@ const data = {
   },
   // Retrieve interest data.
   getAllInterests() {
-    return fetch(`http://localhost:8088/interests`)
+    return fetch("http://localhost:8088/interests")
     .then(response => response.json())
   },
   getInterestsByPlace() {
-    return fetch(`http://localhost:8088/interests/?_expand=place`)
+    return fetch("http://localhost:8088/interests/?_expand=place")
     .then(response => response.json())
   },
   // ADD INTEREST
