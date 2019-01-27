@@ -43,16 +43,29 @@ const interests = {
       })
     })
 
-
-
-
+    let confirmDelete = () => {
+      let confirmMsg = confirm("Are you sure you want to delete this interest?");
+      if (confirmMsg === true) {
+        let interestId = event.target.parentNode.id.split("--")[1];
+        data.deleteInterest(interestId)
+        .then(response => {
+          displayInterestList.interestList();
+        })
+      } else {
+        return false;
+      }
+    }
+    let deleteIntBtn = document.createElement("button");
+    deleteIntBtn.textContent = "Delete";
+    deleteIntBtn.addEventListener("click", confirmDelete)
 
     interestArticle.appendChild(interestTitle);
     interestArticle.appendChild(interestName);
     interestArticle.appendChild(interestDesc);
     interestArticle.appendChild(interestCost);
     interestArticle.appendChild(interestReview);
-    interestArticle.appendChild(editIntBtn)
+    interestArticle.appendChild(editIntBtn);
+    interestArticle.appendChild(deleteIntBtn);
 
     return interestArticle;
   }
