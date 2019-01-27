@@ -35,18 +35,19 @@ const interests = {
     editIntBtn.textContent = "Edit";
     editIntBtn.addEventListener("click", () => {
       let articleId = event.target.parentNode.id;
-      let interestId = articleId.split("--")[1];
+      let interestId = articleId.split("__")[1];
+      console.log(interestId)
       data.getAllInterests(interestId)
       .then(response => {
         //need to create the editForm and call it here.
-        editInterestForm.createAndAppendEditForm(articleId, response)
+        editInterestForm.createAndAppendEditForm(articleId, interestId)
       })
     })
 
     let confirmDelete = () => {
       let confirmMsg = confirm("Are you sure you want to delete this interest?");
-      if (confirmMsg === true) {
-        let interestId = event.target.parentNode.id.split("--")[1];
+      if (confirmMsg == true) {
+        let interestId = event.target.parentNode.id.split("__")[1];
         data.deleteInterest(interestId)
         .then(response => {
           displayInterestList.interestList();

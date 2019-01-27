@@ -36,12 +36,12 @@ const data = {
   // EDIT EXISTING INTEREST - PUT
   editInterest(interestId,interestToEdit) {
     return fetch(`http://localhost:8088/interests/${interestId}`, {
-      method: "PUT",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(interestToEdit)
     })
-  },
+  }
 }
 export default data;

@@ -1,11 +1,13 @@
 import data from "./data"
-import interests from "./interests"
+//import interests from "./interests"
 import displayInterestList from "./displayInterestList"
 
 const editInterestForm = {
   createAndAppendEditForm(articleId, interestObjToEdit) {
+
     let editFormHeader = document.createElement("h3");
     editFormHeader.textContent = "Update Interest:";
+    console.log(interestObjToEdit)
 
     // Create fieldset for editing cost.
     let editInterestCostField = document.createElement("fieldset");
@@ -26,7 +28,8 @@ const editInterestForm = {
     editInterestReviewField.appendChild(editInterestReviewInput);
 
     let updateIntBtn = document.createElement("button");
-    updateIntBtn.textContent = "Update";
+    updateIntBtn.textContent = "Save Changes";
+
     updateIntBtn.addEventListener("click", () => {
       let newInterest = {
         cost: editInterestCostInput.value,
@@ -37,6 +40,7 @@ const editInterestForm = {
       data.editInterest(interestObjToEdit.id, newInterest)
       .then(response => {
         displayInterestList.interestList()
+        console.log(interestObjToEdit)
       })
     })
 
